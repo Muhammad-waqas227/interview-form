@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book Your Interview</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="shell" id="shell">
+  <aside class="intro">
+    <div class="logo"><div class="logo-mark" id="logoMark">K</div><span id="companyName">Khan Software House</span></div>
+    <div>
+      <h1>Let's schedule your interview</h1>
+      <p class="lead">Fill in the short form. We will email you three interview times so you can pick the one that suits you.</p>
+    </div>
+    <ol class="steps">
+      <li><div class="n">1</div><div><b>Tell us about yourself</b><span>It takes about two minutes.</span></div></li>
+      <li><div class="n">2</div><div><b>Pick a time from your email</b><span>Three options, one tap to confirm.</span></div></li>
+      <li><div class="n">3</div><div><b>Join on Google Meet</b><span>A calendar invite with the link is sent to you.</span></div></li>
+    </ol>
+    <div class="note">Interviews are 30 minutes. All times are shown in Pakistan Standard Time (PKT).</div>
+  </aside>
+
+  <main class="panel">
+    <div class="form-wrap">
+      <h2>Candidate details</h2>
+      <p class="sub">Fields marked <span style="color:var(--err)">*</span> are required.</p>
+      <form id="form" novalidate>
+        <fieldset>
+          <legend>Personal information</legend>
+          <div class="grid">
+            <div class="field full"><label for="fullName">Full name <span class="req">*</span></label><input id="fullName" name="fullName" type="text" autocomplete="name" placeholder="e.g. Muhammad Waqas" maxlength="80"><div class="err">Please enter your full name.</div></div>
+            <div class="field"><label for="email">Email address <span class="req">*</span></label><input id="email" name="email" type="email" autocomplete="email" placeholder="you@example.com"><div class="err">Please enter a valid email.</div></div>
+            <div class="field"><label for="phone">Phone / WhatsApp <span class="req">*</span></label><input id="phone" name="phone" type="tel" autocomplete="tel" placeholder="+92 300 1234567"><div class="err">Please enter a valid phone number.</div></div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>About the role</legend>
+          <div class="grid">
+            <div class="field"><label for="position">Position <span class="req">*</span></label>
+              <select id="position" name="position"><option value="">Select a position</option><option>Frontend Developer</option><option>AI Automation Specialist</option><option>Web Developer</option><option>Other</option></select><div class="err">Please choose a position.</div></div>
+            <div class="field"><label for="experience">Experience <span class="req">*</span></label>
+              <select id="experience" name="experience"><option value="">Select experience</option><option>Fresher (0 to 1 year)</option><option>1 to 3 years</option><option>3 to 5 years</option><option>5+ years</option></select><div class="err">Please choose your experience.</div></div>
+            <div class="field"><label for="resume">Resume or portfolio <span class="opt">(optional)</span></label><input id="resume" name="resume" type="url" placeholder="https://your-portfolio.com"><div class="err">Link must start with http:// or https://</div></div>
+            <div class="field"><label for="linkedin">LinkedIn or GitHub <span class="opt">(optional)</span></label><input id="linkedin" name="linkedin" type="url" placeholder="https://linkedin.com/in/you"><div class="err">Link must start with http:// or https://</div></div>
+          </div>
+        </fieldset>
+        <fieldset>
+          <legend>Anything else?</legend>
+          <div class="field"><label for="notes">Notes <span class="opt">(optional)</span></label><textarea id="notes" name="notes" maxlength="300" placeholder="Preferred time of day, notice period, questions..."></textarea><div class="count"><span id="cnt">0</span>/300</div></div>
+        </fieldset>
+        <div class="hp" aria-hidden="true"><label>Leave empty<input id="website" name="website" type="text" tabindex="-1" autocomplete="off"></label></div>
+        <div class="field consent"><input id="consent" type="checkbox"><label for="consent">I agree to be contacted about this interview. <span class="req">*</span></label></div>
+        <div class="field"><div class="err" id="consentErr">Please accept to continue.</div></div>
+        <button class="submit" id="btn" type="submit"><span class="spin" aria-hidden="true"></span><span id="btnText">Get my interview times</span></button>
+        <div class="banner" id="banner" role="status" aria-live="polite"></div>
+      </form>
+    </div>
+    <div class="done" id="done" role="status">
+      <div class="tick"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg></div>
+      <h2>Check your email</h2>
+      <p>We have sent three interview times to <b id="doneEmail"></b>. If you do not see it within a minute, look in your spam folder.</p>
+      <button type="button" id="again">Submit another response</button>
+    </div>
+  </main>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
